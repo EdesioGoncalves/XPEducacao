@@ -1,3 +1,4 @@
+// import { Express } from "express";
 import express from "express";
 import accountsRouter from "./router/accounts.js";
 import {
@@ -9,25 +10,27 @@ const {
   writeFile
 } = fs;
 
-const app = express(); //instância do express
-app.use(express.json()); //avisa ao express do uso no JSON
+//variável global com o nome do arquivo que simula a base de dados
+global.fileName = "accounts.json";
+
+const app = express();
+app.use(express.json());
 
 app.use("/account", accountsRouter);
 
-//inicializa na porta 3000 o server
 app.listen(3000, async () => {
   try {
-    await readFile("accounts.json");
-    console.log("API Starded!");
-  } catch (err) {
+    await readFile(global.fileName);
+    console.log("API Started!");
+  } catch (error) {
     const initialJson = {
-      nextID: 1,
-      acounts: []
+      nextId: 1,
+      accounts: []
     }
-    writeFile("accounts.json", JSON.stringify(initialJson)).then(() => {
-      console.log("API Starded and File Created!");
-    }).catch(err => {
-      console.log(err);
+    writeFile(global.fileName, JSON.stringify(initialJson)).then(() => {
+      console.log("API Started and File Created!");
+    }).catch(error => {
+      console.log(error);
     });
   }
 });
