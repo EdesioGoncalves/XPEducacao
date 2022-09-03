@@ -3,6 +3,9 @@ import express from "express";
 import accountsRouter from "./router/accounts.js";
 import { promises as fs } from "fs";
 import winston from "winston";
+import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import { swaggerDocument } from "./doc.js";
 
 const { readFile, writeFile } = fs;
 const { combine, timestamp, label, printf } = winston.format;
@@ -24,7 +27,9 @@ global.logger = winston.createLogger({
 
 const app = express();
 app.use(express.json());
-app.use(express.static("public"));
+app.use(cors());
+app.use(express.static("public")); // Serve a pasta Public
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/account", accountsRouter);
 
 app.listen(3000, async () => {
