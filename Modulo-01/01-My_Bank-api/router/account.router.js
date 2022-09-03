@@ -1,38 +1,13 @@
 import express from "express";
 import { promises as fs } from "fs";
+import AccountController from "../controllers/account.controller.js";
 
 const { readFile, writeFile } = fs;
 
 const router = express.Router();
 
 // Implementação do método POST
-router.post("/", async (req, res, next) => {
-  try {
-    let account = req.body;
-
-    if (!account.id || !acconunt.name || account.balance == null) {
-      throw new Error("Id, Name e Balance são obrigatórios.")
-    }
-
-    const data = JSON.parse(await readFile(global.fileName));
-    console.log(data);
-
-    account = {
-      id: data.nextId++,
-      name: account.name,
-      balance: account.balance
-    };
-    data.accounts.push(account);
-
-    await writeFile(global.fileName, JSON.stringify(data, null, 2));
-
-    res.send(account);
-
-    logger.info(`POST /account - ${JSON.stringify(account)}`);
-  } catch (err) {
-    next(err);
-  }
-});
+router.post("/", AccountController.createAccount); // passa a função como parâmetro e o POST é quem executa
 
 // Implementação do método GET
 router.get("/", async (req, res, next) => {
