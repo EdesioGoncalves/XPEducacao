@@ -23,3 +23,6 @@
 2022-09-03T05:19:57.842Z [my-bank-api] info: GET /account
 2022-09-03T05:20:45.106Z [my-bank-api] info: GET /account
 2022-09-03T05:23:44.667Z [my-bank-api] info: API Started!
+2022-09-03T06:12:51.540Z [my-bank-api] info: API Started!
+2022-09-03T06:13:12.254Z [my-bank-api] info: GET /account
+2022-09-03T06:14:36.129Z [my-bank-api] info: POST /account - {"id":6,"name":"Welber Fernandez","balance":348.39}
