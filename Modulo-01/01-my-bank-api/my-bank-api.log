@@ -68,3 +68,12 @@
 2022-09-15T02:51:51.417Z [my-bank-api] info: PATCH /account/updateBalance - {"id":4,"balance":300}
 2022-09-15T03:02:29.288Z [my-bank-api] info: PATCH /account/updateBalance - {"id":4,"balance":600.5}
 2022-09-15T03:02:41.610Z [my-bank-api] info: GET /account
+2022-09-15T17:32:37.671Z [my-bank-api] info: API Started!
+2022-09-15T17:32:54.369Z [my-bank-api] info: GET /account
+2022-09-15T17:38:37.011Z [my-bank-api] info: API Started!
+2022-09-15T17:43:04.401Z [my-bank-api] info: GET /account
+2022-09-15T17:56:10.375Z [my-bank-api] info: API Started!
+2022-09-15T17:58:57.501Z [my-bank-api] info: API Started!
+2022-09-15T17:59:24.568Z [my-bank-api] info: GET /account
+2022-09-15T17:59:35.124Z [my-bank-api] info: GET /account
+2022-09-15T17:59:42.851Z [my-bank-api] info: GET /account

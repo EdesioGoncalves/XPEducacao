@@ -1,6 +1,7 @@
 import express from "express";
 import winston from "winston";
 import cors from "cors";
+import basicAuth from "express-basic-auth";
 
 //import das rotas
 import accountsRouter from "./router/account.router.js";
@@ -37,7 +38,46 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("public")); // Serve a pasta Public
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use("/account", accountsRouter); //definição das rotas do Express
+
+// Autenticação - npm install express-basic-auth
+app.use(basicAuth({
+  authorizer: (username, password) => {
+    const userMatches = basicAuth.safeCompare(username, 'admin');
+    const pwdMatches = basicAuth.safeCompare(password, 'admin');
+    
+    const user2Matches = basicAuth.safeCompare(username, 'angelo');
+    const pwd2Matches = basicAuth.safeCompare(password, '1234');
+
+    return userMatches && pwdMatches || user2Matches && pwd2Matches;
+  }
+}));
+
+function getRole(username) {
+  if (username == 'admin') {
+    return 'admin'
+  } else if (username == 'angelo') {
+    return 'role1'
+  }
+}
+
+function authorize(...allowed) {
+  const isAllowed = role => allowed.indexOf(role) > -1;
+  return (req, res, next) => {
+    if (req.auth.user) {
+      const role = getRole(req.auth.user);
+
+      if (isAllowed(role)) {
+        next();
+      } else {
+        res.status(401).send("Role not allowed.");
+      }
+    } else {
+      res.status(403).send("User not found.");
+    }
+  }
+}
+
+app.use("/account", authorize('admin', 'role1'), accountsRouter); //definição das rotas do Express
 
 app.listen(3000, async () => {
   try {
