@@ -1,60 +1,45 @@
 import express from "express";
-const app = express();
-app.use(express.json());
-
+import winston from "winston";
+import pedidosRouter from "./routes/pedido.routes.js";
 import { promises as fs } from 'fs';
+import cors from "cors";
+
 const { readFile, writeFile } = fs;
 
-global.nomeArquivo = "pedidos2.json";
-
-async function getData() {
-  const data = await readFile(global.nomeArquivo);
-  return JSON.parse(data);
-}
-
-app.get("/pedidos", async (req, res) => {
-  const data = await getData();
-  res.send(data);
+global.fileName = "pedidos.json";
+//Wintons - início
+const { combine, timestamp, label, printf } = winston.format;
+const myFormat = printf(({ level, message, label, timestamp }) => {
+  return `${timestamp} [${label}] ${level}: ${message}`;
 });
-
-// Endpoint - Criar pedido
-app.post("/pedidos", async (req, res) => {
-  let pedido = req.body;
-
-  if(!pedido.cliente || !pedido.produto || pedido.valor == null) {
-    throw new Error("Cliente, produto e valor precisam ser preenchidos!");
-  }
-
-  const data = await getData();
-  pedido = {
-    id: data.nextId++,
-    cliente: pedido.cliente,
-    produto: pedido.produto,
-    valor: pedido.valor,
-    entregue: false,
-    timestamp: new Date()
-  };
-  data.pedidos.push(pedido);
-  await writeFile(global.nomeArquivo, JSON.stringify(data, null, 2));
-
-  res.send(pedido);
+global.logger = winston.createLogger({
+  level: "silly",
+  transports: [
+    new (winston.transports.Console)(),
+    new (winston.transports.File)({ fileName: "delivery-api.log" })
+  ],
+  format: combine(label({ label: "delivery-api" }), timestamp(), myFormat)
 });
-
-// Endpoint - Atualizar pedido
-app.get("/pedidos/:id", async (req, res) => {
+//Winston - Fim
+const app = express(); // instancia o express
+app.use(express.json()); //converte JSON
+app.use(cors());
+app.use("/pedido", pedidosRouter);
+app.listen(3000, async () => {
   try {
-    // let pedido = req.body;
-    const data = getData();
-    const pedido = data.pedidos.find(
-      (e) => e.id === parseInt(req.params.id)
-    );
-    //const index = data.pedidos.findIndex((e) => e.id === pedido.id);
-
-    console.log(pedido);
-    res.send(pedido);
+    await readFile(global.fileName);
+    logger.info("API Started!");
   } catch (err) {
-    console.log(`Erro: ${err} .!?`);
-  }
+    const initialJson = { // cria um array caso o arquivo não exista
+      nextId: 1,
+      pedidos: [],
+    };
+    writeFile(global.fileName,JSON.stringify(initialJson))
+      .then(() => {
+        logger.info("API Started and File Created!");
+      })
+      .catch((err) => {
+        logger.error(err);
+      });
+    }
 });
-
-app.listen(3000, () => console.log("API Started!"));
