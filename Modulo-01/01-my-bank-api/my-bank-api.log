@@ -1,0 +1,70 @@
+2022-09-01T04:39:43.538Z [my-bank-api] info: API Started!
+2022-09-01T04:46:06.756Z [my-bank-api] info: API Started!
+2022-09-03T03:24:12.711Z [my-bank-api] info: API Started!
+2022-09-03T03:31:02.113Z [my-bank-api] info: GET /account
+2022-09-03T03:31:47.705Z [my-bank-api] info: GET /account
+2022-09-03T03:31:57.320Z [my-bank-api] info: GET /account
+2022-09-03T04:46:32.545Z [my-bank-api] info: API Started!
+2022-09-03T04:48:59.424Z [my-bank-api] info: API Started!
+2022-09-03T05:03:09.783Z [my-bank-api] info: API Started!
+2022-09-03T05:04:15.376Z [my-bank-api] info: GET /account
+2022-09-03T05:04:20.979Z [my-bank-api] info: GET /account
+2022-09-03T05:06:41.393Z [my-bank-api] info: API Started!
+2022-09-03T05:07:31.488Z [my-bank-api] error: POST /account - Id, Name e Balance são obrigatórios.
+2022-09-03T05:08:28.237Z [my-bank-api] info: API Started!
+2022-09-03T05:08:28.636Z [my-bank-api] error: POST /account - acconunt is not defined
+2022-09-03T05:08:50.789Z [my-bank-api] info: GET /account
+2022-09-03T05:09:18.315Z [my-bank-api] info: API Started!
+2022-09-03T05:09:23.006Z [my-bank-api] error: POST /account - Id, Name e Balance são obrigatórios.
+2022-09-03T05:09:40.153Z [my-bank-api] error: POST /account - acconunt is not defined
+2022-09-03T05:09:45.189Z [my-bank-api] info: GET /account
+2022-09-03T05:10:38.365Z [my-bank-api] info: GET /account
+2022-09-03T05:19:55.989Z [my-bank-api] info: GET /account
+2022-09-03T05:19:57.842Z [my-bank-api] info: GET /account
+2022-09-03T05:20:45.106Z [my-bank-api] info: GET /account
+2022-09-03T05:23:44.667Z [my-bank-api] info: API Started!
+2022-09-03T06:12:51.540Z [my-bank-api] info: API Started!
+2022-09-03T06:13:12.254Z [my-bank-api] info: GET /account
+2022-09-03T06:14:36.129Z [my-bank-api] info: POST /account - {"id":6,"name":"Welber Fernandez","balance":348.39}
+2022-09-15T01:14:50.442Z [my-bank-api] info: API Started!
+2022-09-15T01:16:14.762Z [my-bank-api] info: GET /account
+2022-09-15T01:16:46.207Z [my-bank-api] info: POST /account - {"id":7,"name":"Aline Nurse","balance":5000.4}
+2022-09-15T01:17:04.739Z [my-bank-api] info: GET /account
+2022-09-15T01:35:57.459Z [my-bank-api] info: GET /account
+2022-09-15T01:36:30.467Z [my-bank-api] info: GET /account/:id
+2022-09-15T01:37:12.305Z [my-bank-api] info: GET /account
+2022-09-15T01:37:21.169Z [my-bank-api] info: DELETE /account/:id - 6
+2022-09-15T01:37:28.666Z [my-bank-api] info: GET /account
+2022-09-15T01:38:16.953Z [my-bank-api] info: POST /account - {"id":8,"name":"João Silva","balance":1.99}
+2022-09-15T01:38:21.014Z [my-bank-api] info: GET /account
+2022-09-15T01:40:27.050Z [my-bank-api] info: PUT /account - {"id":1,"name":"José Edésio Gonçalves Silva Duarte","balance":17100.52}
+2022-09-15T01:40:30.751Z [my-bank-api] info: GET /account
+2022-09-15T01:41:58.229Z [my-bank-api] info: GET /account
+2022-09-15T01:42:28.588Z [my-bank-api] info: PATCH /account/updateBalance - {"id":4,"balance":50.67}
+2022-09-15T01:42:44.901Z [my-bank-api] info: GET /account
+2022-09-15T01:57:07.783Z [my-bank-api] info: POST /account - {"id":9,"name":"Armando Pinto","balance":500}
+2022-09-15T01:57:12.134Z [my-bank-api] info: GET /account
+2022-09-15T02:16:46.618Z [my-bank-api] info: GET /account
+2022-09-15T02:16:56.733Z [my-bank-api] info: GET /account/:id
+2022-09-15T02:17:09.448Z [my-bank-api] info: GET /account
+2022-09-15T02:17:27.946Z [my-bank-api] info: DELETE /account/:id - 9
+2022-09-15T02:17:30.655Z [my-bank-api] info: GET /account
+2022-09-15T02:17:36.826Z [my-bank-api] info: POST /account - {"id":10,"name":"Armando Pinto","balance":500}
+2022-09-15T02:17:39.935Z [my-bank-api] info: GET /account
+2022-09-15T02:18:12.191Z [my-bank-api] info: PUT /account - {"id":1,"name":"Edésio Gonçalves","balance":17350.52}
+2022-09-15T02:18:15.739Z [my-bank-api] info: GET /account
+2022-09-15T02:18:31.309Z [my-bank-api] info: PATCH /account/updateBalance - {"id":4,"balance":100.5}
+2022-09-15T02:18:35.963Z [my-bank-api] info: GET /account
+2022-09-15T02:30:54.378Z [my-bank-api] info: GET /account
+2022-09-15T02:49:58.949Z [my-bank-api] info: GET /account
+2022-09-15T02:50:03.271Z [my-bank-api] info: GET /account/:id
+2022-09-15T02:50:12.309Z [my-bank-api] info: DELETE /account/:id - 10
+2022-09-15T02:50:15.358Z [my-bank-api] info: GET /account
+2022-09-15T02:50:19.109Z [my-bank-api] info: POST /account - {"id":11,"name":"Armando Pinto","balance":500}
+2022-09-15T02:50:22.158Z [my-bank-api] info: GET /account
+2022-09-15T02:50:34.794Z [my-bank-api] info: GET /account
+2022-09-15T02:51:21.928Z [my-bank-api] info: PUT /account - {"id":5,"name":"Franciele Silva Duarte","balance":7000.9}
+2022-09-15T02:51:27.992Z [my-bank-api] info: GET /account
+2022-09-15T02:51:51.417Z [my-bank-api] info: PATCH /account/updateBalance - {"id":4,"balance":300}
+2022-09-15T03:02:29.288Z [my-bank-api] info: PATCH /account/updateBalance - {"id":4,"balance":600.5}
+2022-09-15T03:02:41.610Z [my-bank-api] info: GET /account

@@ -1,0 +1,35 @@
+{
+  "nextId": 12,
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Edésio Gonçalves",
+      "balance": 17350.52
+    },
+    {
+      "id": 4,
+      "name": "Rayanne Eduarda Cruz",
+      "balance": 600.5
+    },
+    {
+      "id": 5,
+      "name": "Franciele Silva Duarte",
+      "balance": 7000.9
+    },
+    {
+      "id": 7,
+      "name": "Aline Nurse",
+      "balance": 5000.4
+    },
+    {
+      "id": 8,
+      "name": "João Silva",
+      "balance": 1.99
+    },
+    {
+      "id": 11,
+      "name": "Armando Pinto",
+      "balance": 500
+    }
+  ]
+}
