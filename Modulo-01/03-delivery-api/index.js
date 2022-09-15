@@ -1,7 +1,7 @@
 import express from "express";
 import winston from "winston";
 import pedidosRouter from "./routes/pedido.routes.js";
-import { promises as fs } from 'fs';
+import { promises as fs } from "fs";
 import cors from "cors";
 
 const { readFile, writeFile } = fs;
@@ -15,10 +15,10 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 global.logger = winston.createLogger({
   level: "silly",
   transports: [
-    new (winston.transports.Console)(),
-    new (winston.transports.File)({ fileName: "delivery-api.log" })
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: "delivery-api.log" }),
   ],
-  format: combine(label({ label: "delivery-api" }), timestamp(), myFormat)
+  format: combine(label({ label: "delivery-api" }), timestamp(), myFormat),
 });
 //Winston - Fim
 const app = express(); // instancia o express
